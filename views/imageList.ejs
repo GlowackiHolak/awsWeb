@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+	</head>
+	<body>
+		<nav class="navbar">
+			
+		</nav>
+		<div class="container">
+			<section id="section1" class="panel panel-default">
+				<div class="panel-heading">
+					<div class="container">
+						<h3 class="panel-title"><strong>List of objects in <%=bucket%> on Amazon S3</strong></h3>
+					</div>
+				</div>
+				<div class="panel-body"> 	
+					
+						<table class="table">							
+							<tr>
+								<th>Key</td>
+								<th>Size</th>
+								<th>Owner</th>
+								<th>Modified</th>
+								<th></th>
+							</tr>
+							
+							<% obj.forEach(function(elem){ %>							
+							<tr>								
+								<td><%=elem.Key%></td>
+								<td><%=(elem.Size/1024).toFixed(1)+" KB"%></td>
+								<td><%=elem.Owner.DisplayName%></td>
+								<td><%=elem.LastModified%></td>
+								<td><button class="btn btn-primary btn-sm" onClick="window.location.href='/showImage/<%=elem.Key%>'">show</button></td>
+								<td><button class="btn btn-primary btn-sm" onClick="window.location.href='/editImage/<%=elem.Key%>'">edit</button></td>
+								<td><button class="btn btn-primary btn-sm" onClick="window.location.href='/delete/<%=elem.Key%>'">delete</button></td>
+							</tr>								
+							<%}); %>
+													
+							
+						</table>
+					
+				
+		
+				<div class="container">
+					<div class="col-xs-2">
+						<button type="button" class="btn  btn-primary btn-block" onClick="window.location.href='/'">Return</button>
+					</div>
+					<div class="col-xs-2">
+						<button type="button" class="btn  btn-primary btn-block" onClick="window.location.href='/'">Home Page</button>
+					</div>
+				</div>
+				</div>
+	  			<footer class="panel-footer">
+				
+				</footer>
+			</section>
+		</div>		
+	</body>
+</html>

@@ -1,0 +1,7 @@
+[
+	{"path":"/", "action":"createform"},
+	{"path":"/imageList", "action":"createList"},
+	{"path":"/showImage/*", "action":"showImage"},
+	{"path":"/editImage/*", "action":"editImage"},
+	{"path":"/delete/*", "action":"delete"}
+]
